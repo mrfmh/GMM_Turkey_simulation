@@ -5,14 +5,14 @@ import streamlit as st
 import pickle
 import os
 from sklearn.neural_network import MLPRegressor
-
+import joblib
 
 st.markdown(""" <style> .font {font-size:20px ; color: #000000;} 
 </style> """, unsafe_allow_html=True)
 
 @st.cache_resource
 def model():
-    models=pickle.load(open(f'MLP.pkl', 'rb'))
+    models= joblib.load('model_filename.pkl')
     return models
        
 st.title("""Backbone Ground Motion Model for Turkey (KMHCAL23)""")
