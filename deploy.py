@@ -59,7 +59,7 @@ ax.plot(PSAs_df['T'],PSAs_df['PSAs'],color='k')
 plt.xlabel('T (s)')
 plt.ylabel(r'$PSA\ (cm/s^2)$')
 plt.xlim(0.03,2)
-plt.ylim(0,1000)
+plt.ylim(0.1,10000)
 plt.grid(which='both')
 plt.savefig('sprectra.png',dpi=600,bbox_inches='tight',pad_inches=0.05)
 plt.gcf().subplots_adjust(bottom=0.15)
@@ -68,13 +68,13 @@ from PIL import Image
 image = Image.open('sprectra.png')
 st.image(image)
 
-# def convert_df(df):
-#     return df.to_csv().encode('utf-8')
-# csv = convert_df(PSAs_df)
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+csv = convert_df(PSAs_df)
 
-# st.download_button(
-#     label="Download data as CSV",
-#     data=csv,
-#     file_name='PSAs.csv',
-#     mime='text/csv',
-# )
+st.download_button(
+    label="Download data as CSV",
+    data=csv,
+    file_name='PSAs.csv',
+    mime='text/csv',
+)
