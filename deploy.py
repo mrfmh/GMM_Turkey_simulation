@@ -12,7 +12,7 @@ st.markdown(""" <style> .font {font-size:20px ; color: #000000;}
 
 @st.cache_resource
 def model():
-    models= joblib.load('model_filename.pkl')
+    models= joblib.load('MLP.pkl')
     return models
        
 st.title("""Backbone Ground Motion Model for Turkey (KMHCAL23)""")
