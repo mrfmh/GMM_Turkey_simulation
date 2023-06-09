@@ -37,8 +37,8 @@ st.sidebar.markdown("---")
 ###############################################################
 st.title('Outputs:')
 models=model()
-PGA=np.exp(models.predict(x))[0]
-PGV=np.exp(models.predict(x))[1]
+PGA=np.exp(models.predict(x))
+PGV=np.exp(models.predict(x))
 st.text('PGA= '+ str(np.round(PGA,2)) +' (cm/s^2)')
 st.text('PGV= '+ str(np.round(PGV,2)) +'  cm/s')
 
