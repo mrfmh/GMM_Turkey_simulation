@@ -35,7 +35,7 @@ x=pd.DataFrame({'Mw':[Mw],'RJB':[RJB],'Focal Depth':[FD],'Fault Mechanism':[FM]}
 st.title('Summary of your inputs:')
 st.write('Mw= '+ str(x.Mw[0])+'; RJB= '+ str(x.RJB[0])+ ' km'+ '; Focal Depth= '+ str(x['Focal Depth'][0])+ ' km'+'; Focal Mechanism= '+ str(x['Fault Mechanism'][0]))
 
-st.sidebar.image("logo.png",width=120)
+# st.sidebar.image("logo.png",width=120)
 st.sidebar.markdown("Made by [Amirhossein Mohammadi](https://www.linkedin.com/in/amir-hossein-mohammadi-86729957/)")
 st.sidebar.markdown("---")
 
