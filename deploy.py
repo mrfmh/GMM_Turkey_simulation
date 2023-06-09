@@ -24,9 +24,9 @@ RJB = st.sidebar.slider("RJB",min_value=0, value=3,max_value=148,step=1, help="P
 FD = st.sidebar.slider("Focal Depth",min_value=5.0, value=10.0,max_value=17.3,step=0.1, help="Please enter a value between 5 and 17.3 km")
 FM = st.sidebar.radio("Fault Mechanism",["Normal", "Strike-slip", "Reverse"],key="FM",index=1) 
     
-x=pd.DataFrame({'Mw':[Mw],'RJB':[RJB],'Focal Depth':[FD],'Fault Mechanism':[FM]})
+x=pd.DataFrame({'Mw':[Mw],'RJB':[RJB],'Focal Depth':[FD],'Mechanism_Normal':np.where(FM=='Normal',1,0),'Mechanism_Strike-slip':np.where(FM=='Strike-slip',1,0),'Mechanism_Thrust':np.where(FM=='Reverse',1,0)})
 st.title('Summary of your inputs:')
-st.write('Mw= '+ str(x.Mw[0])+'; RJB= '+ str(x.RJB[0])+ ' km'+ '; Focal Depth= '+ str(x['Focal Depth'][0])+ ' km'+'; Focal Mechanism= '+ str(x['Fault Mechanism'][0]))
+st.write('Mw= '+ str(x.Mw[0])+'; RJB= '+ str(x.RJB[0])+ ' km'+ '; Focal Depth= '+ str(x['Focal Depth'][0])+ ' km'+'; Focal Mechanism= '+ str(FM))
 
 # st.sidebar.image("logo.png",width=120)
 st.sidebar.markdown("Made by [Amirhossein Mohammadi](https://www.linkedin.com/in/amir-hossein-mohammadi-86729957/)")
