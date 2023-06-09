@@ -22,7 +22,7 @@ st.sidebar.title('Define your input')
 Mw = st.sidebar.slider("Mw",min_value=5.0, value=6.7,max_value=6.8,step=0.1, help="Please enter a value between 5.0 and 6.8")
 RJB = st.sidebar.slider("RJB",min_value=0, value=3,max_value=148,step=1, help="Please enter a value between 0 and 148 km")
 FD = st.sidebar.slider("Focal Depth",min_value=5.0, value=10.0,max_value=17.3,step=0.1, help="Please enter a value between 5 and 17.3 km")
-FM = st.sidebar.radio("Fault Mechanism",["Normal", "Strike-slip", "Reverse"],key="Strike-slip") 
+FM = st.sidebar.radio("Fault Mechanism",["Normal", "Strike-slip", "Reverse"],key="FM",index=1) 
     
 x=pd.DataFrame({'Mw':[Mw],'RJB':[RJB],'Focal Depth':[FD],'Fault Mechanism':[FM]})
 st.title('Summary of your inputs:')
@@ -44,7 +44,7 @@ PSAs=np.exp(models.predict(x)[0][2:])
 
 PSAs_df= pd.DataFrame()
 PSAs_df['PSAs']=PSAs
-PSAs_df['T']=[0.03,0.05,0.075,0.1,0.15,0.2,0.25,0.3,0.4,0.5,0.75,1.0,1.5,2.0]
+PSAs_df['T']=[0.03,0.05,0.1,0.15,0.2,0.25,0.3,0.4,0.5,0.75,1.0,1.5,2.0]
 PSAs_df.sort_values(by=["T"], inplace = True) 
 PSAs_df.reset_index(drop=True,inplace=True)
 
