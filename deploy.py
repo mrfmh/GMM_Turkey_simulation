@@ -7,6 +7,13 @@ import os
 from sklearn.neural_network import MLPRegressor
 import joblib
 
+[theme]
+primaryColor="#F63366"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#262730"
+font="Times New Roman"
+
 st.markdown(""" <style> .font {font-size:20px ; color: #000000;} 
 </style> """, unsafe_allow_html=True)
 
@@ -59,6 +66,7 @@ ax.plot(PSAs_df['T'],PSAs_df['PSAs'],color='k')
 plt.xlabel('T (s)')
 plt.ylabel(r'$PSA\ (cm/s^2)$')
 plt.xlim(0.03,2)
+
 plt.ylim(0.1,10000)
 plt.grid(which='both')
 plt.savefig('sprectra.png',dpi=600,bbox_inches='tight',pad_inches=0.05)
