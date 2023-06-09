@@ -39,34 +39,34 @@ st.sidebar.markdown("---")
 ###############################################################
 st.title('Outputs:')
 models=model()
-PGA=np.exp(models.predict(x))[0]
-# PGV=np.exp(models.predict(x))[1]
+PGA=np.exp(models.predict(x))[0][0]
+PGV=np.exp(models.predict(x))[0][1]
 st.text('PGA= '+ str(np.round(PGA,2)) +' (cm/s^2)')
-# st.text('PGV= '+ str(np.round(PGV,2)) +'  cm/s')
+st.text('PGV= '+ str(np.round(PGV,2)) +'  cm/s')
 
-# PSAs=np.exp(models.predict(x)[2:])
+PSAs=np.exp(models.predict(x)[0][2:])
 
-# PSAs_df= pd.DataFrame()
-# PSAs_df['PSAs']=PSAs
-# PSAs_df['T']=[0.03,0.05,0.1,0.15,0.2,0.25,0.3,0.4,0.5,0.75,1.0,1.5,2.0]
-# PSAs_df.sort_values(by=["T"], inplace = True) 
-# PSAs_df.reset_index(drop=True,inplace=True)
+PSAs_df= pd.DataFrame()
+PSAs_df['PSAs']=PSAs
+PSAs_df['T']=[0.03,0.05,0.1,0.15,0.2,0.25,0.3,0.4,0.5,0.75,1.0,1.5,2.0]
+PSAs_df.sort_values(by=["T"], inplace = True) 
+PSAs_df.reset_index(drop=True,inplace=True)
 
-# fig, ax = plt.subplots(figsize=(8,2))
-# ax.set_xscale('log')
-# ax.set_yscale('log')
-# ax.plot(PSAs_df['T'],PSAs_df['PSAs'],color='k')
-# plt.xlabel('T (s)')
-# plt.ylabel(r'$PSA\ (cm/s^2)$')
-# plt.xlim(0.03,2)
-# plt.ylim(0,1000)
-# plt.grid(which='both')
-# plt.savefig('sprectra.png',dpi=600,bbox_inches='tight',pad_inches=0.05)
-# plt.gcf().subplots_adjust(bottom=0.15)
+fig, ax = plt.subplots(figsize=(8,2))
+ax.set_xscale('log')
+ax.set_yscale('log')
+ax.plot(PSAs_df['T'],PSAs_df['PSAs'],color='k')
+plt.xlabel('T (s)')
+plt.ylabel(r'$PSA\ (cm/s^2)$')
+plt.xlim(0.03,2)
+plt.ylim(0,1000)
+plt.grid(which='both')
+plt.savefig('sprectra.png',dpi=600,bbox_inches='tight',pad_inches=0.05)
+plt.gcf().subplots_adjust(bottom=0.15)
 
-# from PIL import Image
-# image = Image.open('sprectra.png')
-# st.image(image)
+from PIL import Image
+image = Image.open('sprectra.png')
+st.image(image)
 
 # def convert_df(df):
 #     return df.to_csv().encode('utf-8')
