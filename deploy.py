@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import pickle
 import os
+from sklearn.neural_network import MLPRegressor
+
 
 st.markdown(""" <style> .font {font-size:20px ; color: #000000;} 
 </style> """, unsafe_allow_html=True)
