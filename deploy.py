@@ -25,7 +25,7 @@ FD = st.sidebar.slider("Focal Depth",min_value=5.0, value=10.0,max_value=17.3,st
 FM = st.sidebar.radio("Fault Mechanism",["Normal", "Strike-slip", "Reverse"],key="FM",index=1) 
 Vs30 = st.sidebar.radio("Soil type",["NEHRP D", "Generic soil", "NEHRP C"],key="Vs30",index=1) 
     
-x=pd.DataFrame({'Mw':[Mw],'RJB':[RJB],'Focal Depth':[FD],'Mechanism_Normal':np.where(FM=='Normal',1,0),'Mechanism_Strike-slip':np.where(FM=='Strike-slip',1,0),'Mechanism_Thrust':np.where(FM=='Reverse',1,0)
+x=pd.DataFrame({'Mw':[Mw],'Rjb':[RJB],'Depth':[FD],'Mechanism_Normal':np.where(FM=='Normal',1,0),'Mechanism_Strike-slip':np.where(FM=='Strike-slip',1,0),'Mechanism_Thrust':np.where(FM=='Reverse',1,0)
                ,'Vs30_255':np.where(Vs30=='NEHRP D',1,0),'Vs30_310':np.where(Vs30=='Generic soil',1,0),'Vs30_520':np.where(Vs30=='NEHRP C',1,0)})
 st.title('Summary of your inputs:')
 st.write('Mw= '+ str(x.Mw[0])+'; RJB= '+ str(x.RJB[0])+ ' km'+ '; Focal Depth= '+ str(x['Focal Depth'][0])+ ' km'+'; Focal Mechanism= '+ str(FM))
