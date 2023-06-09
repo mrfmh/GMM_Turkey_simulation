@@ -7,7 +7,6 @@ import os
 from sklearn.neural_network import MLPRegressor
 import joblib
 
-[theme]
 primaryColor="#F63366"
 backgroundColor="#FFFFFF"
 secondaryBackgroundColor="#F0F2F6"
