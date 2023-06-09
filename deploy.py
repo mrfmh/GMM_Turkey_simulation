@@ -22,7 +22,7 @@ st.sidebar.title('Define your input')
 Mw = st.sidebar.slider("Mw",min_value=5.0, value=6.7,max_value=6.8,step=0.1, help="Please enter a value between 5.0 and 6.8")
 RJB = st.sidebar.slider("RJB",min_value=0, value=3,max_value=148,step=1, help="Please enter a value between 0 and 148 km")
 FD = st.sidebar.slider("Focal Depth",min_value=5.0, value=10.0,max_value=17.3,step=0.1, help="Please enter a value between 5 and 17.3 km")
-FM = st.radio(
+FM = st.sidebar.radio(
         "Fault Mechanism 👇",
         ["Normal", "Strike-slip", "Reverse"],
         key="Strike-slip",
