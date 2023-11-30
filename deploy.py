@@ -21,7 +21,7 @@ def model():
     models= joblib.load('MLP.pkl')
     return models
        
-st.title("""Backbone Ground Motion Model for Turkey (KMHCAL23)""")
+st.title("""Ground Motion Model for Turkey (KMHCAL23)""")
 
 st.markdown('<p class="font">This app predicts the PGA, PGV, and PSA (5% damping) for the horizontal componenet of ground motion records in bedrock</p>', unsafe_allow_html=True)
 
